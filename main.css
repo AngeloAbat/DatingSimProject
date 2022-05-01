@@ -3,13 +3,23 @@
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
     --bg-primary: #1e1e24;
-    --bg-secondary:#141418
+    --bg-secondary:#141418;
+    --bg-navHoverBlack: rgb(17,17,17);
+    --bg-coolColor:#6649b8;
+    --bg-pink: rgb(248, 187, 197);
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Fonts
 
+    font-family: 'Indie Flower', cursive; (Dialogue)
+    font-family: 'Lobster', cursive; (Title and Navbar)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 body {
     color: rgb(233, 198, 0);
     margin: 0;
     padding: 0;
+    z-index: 1;
 }
 
 main{
@@ -32,7 +42,7 @@ body::-webkit-scrollbar-track{
     background: #1e1e24;
 }
 body::-webkit-scrollbar-thumb{
-    background: #6649b8;
+    background:var(--bg-pink);
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -50,36 +60,73 @@ body::-webkit-scrollbar-thumb{
 .navbar-nav{
     list-style: none;
     height: 100%;
-    padding: 1rem;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items:flex-start; 
 }
 
 .nav-item{
     width: 100%;
 }
 
-.nav-link{
+.navArrow{
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 0.4ch;
+    background-color: var(--bg-navHoverBlack);
+}
+
+.navArrow i{
+    position: relative;
+    left: -2.5rem;
+}
+
+.linkText{
+    font-family: "lobster", cursive;
+    opacity: 0;
+    overflow: hidden;
+    padding: 23px;
+}
+
+.nav-link, .navArrow {
     display:flex;
     align-items: center;
     height: 5rem;
     color: var(--text-primary);
     text-decoration:none;
     font-size: 35px;
-    padding: 10px;
+}
+
+.nav-link, .navArrow i{
+    min-width: 2rem;
+    margin: 0 1.3rem;
 }
 
 .navMenu:hover{
-    width: 16rem;
+    width: 14rem;
 }
 
-.nav-link i{
-    transition: 400ms;
+.navMenu:hover .navArrow i{
+    color: rgb(175, 109, 120);
+    transform: rotate(-180deg);
+    transition: 300ms;
 }
 
-.nav-link:hover i{
-    color: #6649b8;
+.navItem:hover{
+    background-color: rgb(17, 17, 17);
+    transition: 200ms;
+}
+
+.nav-link:hover #convert{
+    transition: 800ms;
+    color: var(--bg-pink); /* Nav Font Color */
+}
+
+.navbar-nav:hover .linkText{
+    overflow: visible;
+    opacity: 1;
+    transition: 0;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
