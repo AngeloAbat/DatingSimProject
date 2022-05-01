@@ -1,0 +1,26 @@
+:root{
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #1e1e24;
+    --bg-secondary:#141418;
+    --bg-navHoverBlack: rgb(17,17,17);
+    --bg-coolColor:#6649b8;
+    --bg-pink: rgb(248, 187, 197);
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Fonts
+
+    font-family: 'Indie Flower', cursive; (Dialogue)
+    font-family: 'Lobster', cursive; (Title and Navbar)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+footer{
+    height: 250px;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    margin-left: 5rem;
+    padding: 1rem;
+    color: var(--text-primary);
+}

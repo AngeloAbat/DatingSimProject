@@ -20,17 +20,19 @@ body {
     margin: 0;
     padding: 0;
     z-index: 1;
+    background-color: var(--bg-secondary);
 }
 
 main{
     margin-left: 5rem;
     padding: 1rem;
-    height: 4000px;
+    height: 920px;
 }
 
 .backgroundImg{
-    background-image: url("klee-genshin.gif");
-    background-repeat: repeat;
+    background-image: url(./backgroundImages/carl-peters-office.jpg);
+    background-size: cover;
+    --webkit-filter: blur(4px);
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                       Scrollbar
@@ -129,4 +131,19 @@ body::-webkit-scrollbar-thumb{
     opacity: 1;
     transition: 0;
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    NavMenu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.taro {
+    position: relative;
+    height: 925px;
+    width: 530px;
+    right: -1200px;
+    bottom: 70px;
+    filter: blur(0px);
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
