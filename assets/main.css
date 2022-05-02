@@ -16,7 +16,6 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 body {
-    color: rgb(233, 93, 0);
     margin: 0;
     padding: 0;
     background-color: var(--bg-secondary);
@@ -26,7 +25,7 @@ main{
     margin-left: 5rem;
     padding: 0rem;
     margin-top: 0%;
-    height: 920px;
+    height: 100vh;
 }
 
 .backgroundImage{
@@ -151,45 +150,52 @@ body::-webkit-scrollbar-thumb{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     transform: translate(0%, -100%);
 }
 
 .mainGridChild{
-    margin: 2rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
     padding: 0;
-    background-color: var(--text-primary);
-    text-align: center;
-    border: 3px var(--bg-pink) solid;
-    border-radius: 25px;
     z-index: -1 ;
+    font-family: 'Indie Flower', cursive;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     GridMainChild
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .gameChoices{
-    grid-row: 1 / span 3;
-    grid-column: 1 / span 3;
     position: absolute;
-
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 12px;
+    row-gap: 2rem;
+    top: 30vh;
+    left: 2vw;
 }
 
 .gameCharacter{
     position: absolute;
-    height: 90%;
-    top: 50px;
-    grid-row: 1/ span 4;
-    grid-column: 4 / span 1;
+    height: 87vh;
+    bottom: 0vh;
+    width: 30vw;
+    left: 57vw;
 }
 
 .gameDialogue{
-    filter: opacity(0.7);
-    grid-row: 4 / span 1; 
-    grid-column: 1 / span 5;
+    filter: opacity(0.9);
+    position: absolute;
+    width: 85vw;
+    top: 67vh;
+    left: 5vw;
+    height: 25vh;
+
+    background-color: var(--text-primary);
+    text-align: center;
+    border: 4px rgb(0, 0, 0) solid;
+    border-top: 4px rgb(77, 77, 77) solid;
+    border-left: 4px rgb(77, 77, 77) solid;
+    border-radius: 25px 50px 25px 50px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,9 +203,26 @@ body::-webkit-scrollbar-thumb{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .gameButton{
-    width: 250px ;
+    width: 45vw ;
+    height: 7vh;
+    border-radius: 12px 25px 12px 25px;
+    background-color: var(--text-primary);
+    font-family: 'Indie Flower', cursive; 
+    font-size: 24px;
+    text-align: left;
+    padding: 1vw;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    character
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.butter{
+    max-width: 100%;
+    height: 87vh;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
