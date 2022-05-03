@@ -70,10 +70,6 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
 }
 
-.nav-item{
-    width: 100%;
-}
-
 .navArrow{
     font-weight: bold;
     margin-bottom: 1rem;
@@ -108,6 +104,10 @@ body::-webkit-scrollbar-thumb{
     margin: 0 1.3rem;
 }
 
+.navItem, #convert, .navArrow i{
+    transition: 1200ms;
+}
+
 .navMenu:hover{
     width: 14rem;
 }
@@ -115,16 +115,13 @@ body::-webkit-scrollbar-thumb{
 .navMenu:hover .navArrow i{
     color: rgb(175, 109, 120);
     transform: rotate(-180deg);
-    transition: 300ms;
 }
 
 .navItem:hover{
     background-color: rgb(17, 17, 17);
-    transition: 200ms;
 }
 
 .nav-link:hover #convert{
-    transition: 800ms;
     color: var(--bg-pink); /* Nav Font Color */
 }
 
@@ -138,13 +135,6 @@ body::-webkit-scrollbar-thumb{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     GridMain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*.backgroundImg{
-    background-image: url(./backgroundImages/carl-peters-office.jpg);
-    background-size: cover;
-    --webkit-filter: blur(4px);
-}*/
-
 .mainGrid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -156,7 +146,6 @@ body::-webkit-scrollbar-thumb{
 
 .mainGridChild{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     padding: 0;
     z-index: -1 ;
     font-family: 'Indie Flower', cursive;
@@ -169,57 +158,116 @@ body::-webkit-scrollbar-thumb{
     position: absolute;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 2rem;
-    top: 30vh;
-    left: 2vw;
+    top: 27vh;
+    left: 5vw;
 }
 
 .gameCharacter{
     position: absolute;
-    height: 87vh;
+    height: 95vh;
     bottom: 0vh;
     width: 30vw;
     left: 57vw;
 }
 
 .gameDialogue{
-    filter: opacity(0.9);
+    filter: opacity(0.8);
     position: absolute;
     width: 85vw;
     top: 67vh;
     left: 5vw;
     height: 25vh;
 
-    background-color: var(--text-primary);
+    background-color: rgb(249, 185, 194);
     text-align: center;
-    border: 4px rgb(0, 0, 0) solid;
-    border-top: 4px rgb(77, 77, 77) solid;
-    border-left: 4px rgb(77, 77, 77) solid;
+    border: 6px rgb(0, 0, 0) solid;
+    border-top: 6px rgb(77, 77, 77) solid;
+    border-left: 6px rgb(77, 77, 77) solid;
     border-radius: 25px 50px 25px 50px;
 }
-
+.gameDialogue p{
+    padding: 1vw;
+    font-size: 32px;
+    font-weight: bolder;
+    letter-spacing: 0.1ch;
+    text-align: left;
+} 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     gameButton
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .gameButton{
+    transition: 400ms;
+    position: absolute;
+
+    letter-spacing: 0.1ch;
     width: 45vw ;
-    height: 7vh;
-    border-radius: 12px 25px 12px 25px;
+    border-radius: 50px 50px 50px 50px;
     background-color: var(--text-primary);
     font-family: 'Indie Flower', cursive; 
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     padding: 1vw;
+    filter: opacity(0.7);
+    background-color:rgb(255, 151, 177); ;
+    /*background-color: rgb(249, 185, 194);*/
+
 }
 
+.gameButton:hover{
+    transform: scale(1.04);
+    font-weight: bolder;
+    filter: opacity(1);
+    border: rgb(0, 0, 0) solid;
+    border-bottom: rgb(77, 77, 77) solid;
+    border-right: rgb(77, 77, 77) solid;
+}
+
+.choiceA{
+    display: hidden;
+    top: 0vh;
+}
+
+.choiceB{
+    display: hidden;
+    top: 10vh;
+}
+
+.choiceC{
+    display: hidden;
+    top: 20vh;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     character
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.butter{
+.characterA{
     max-width: 100%;
-    height: 87vh;
+    height: 95vh;
+}
+
+.gameName{
+    z-index: 3;
+    position: absolute;
+    width: 12vw;
+    height: 5.5vh;
+    bottom: 32.3vh;
+    left: 12vw;
+
+    filter: opacity(0.8);
+    border-radius: 25px 25px 0px 0px;
+    background-color: rgb(249, 185, 194);
+    border: 6px rgb(77, 77, 77) solid;
+    border-bottom: none;
+}
+
+.gameName h2{
+    font-family: 'Lobster';
+    letter-spacing: 0.2ch;
+    position: absolute;
+    left: 3.4vw;
+    top: -2vh;
+    font-size: 32px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
