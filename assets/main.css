@@ -29,7 +29,7 @@ main{
 }
 
 .backgroundImage{
-    background-image: url(./backgroundImages/carl-peters-office.jpg);
+    background-image: url(./backgroundImages/taroBackground/TaroOffice.jpg);
     background-size: cover;
     height: 100%;
     filter: blur(5px);
