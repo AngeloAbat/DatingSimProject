@@ -199,7 +199,7 @@ body::-webkit-scrollbar-thumb{
 .gameButton{
     transition: 400ms;
     position: absolute;
-
+    gap: 12px;
     letter-spacing: 0.1ch;
     width: 45vw ;
     border-radius: 50px 50px 50px 50px;
@@ -223,22 +223,22 @@ body::-webkit-scrollbar-thumb{
     border-right: rgb(77, 77, 77) solid;
 }
 
-.choiceA{
+#choiceA{
     display: hidden;
     top: 0vh;
 }
 
-.choiceB{
+#choiceB{
     display: hidden;
     top: 10vh;
 }
 
-.choiceC{
+#choiceC{
     display: hidden;
     top: 20vh;
 }
 
-.choiceD{
+#choiceD{
     display: hidden;
     top: 30vh;
 }

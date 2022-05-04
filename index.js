@@ -1,18 +1,37 @@
-const textElement = document.getElementById('gameText')
-const choiceButtons = document.querySelector('.gameChoices') 
-
 function startGame() {
     showTextNode(1)
-    console.log("I got called , startGame()")
 }
 
 function showTextNode(textNodeIndex) {
+    let textElements = document.getElementById('gameText')
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    console.log(textElement)
-    textElement.innerHTML = "textNode.text"
-}
+    textElements.innerHTML = textNode.text
 
-function selectOption(option){
+    let buttonA = document.getElementById('choiceA')
+    let buttonB = document.getElementById('choiceB')
+    let buttonC = document.getElementById('choiceC')
+    let buttonD = document.getElementById('choiceD')
+
+    buttonA.innerHTML = textNode.options[0].text
+    buttonB.innerHTML = textNode.options[1].text
+    buttonC.innerHTML = textNode.options[2].text
+    buttonD.innerHTML = textNode.options[3].text
+
+    if(textNode.options[0].text === null){
+        buttonA.style.display = "none";
+    }
+
+    if(textNode.options[1].text === null){
+        buttonB.style.display = "none";
+    }
+
+    if(textNode.options[2].text === null){
+        buttonC.style.display = "none";
+    }
+
+    if(textNode.options[3].text === null){
+        buttonD.style.display = "none";
+    }
 }
 
 const textNodes = [
@@ -21,19 +40,19 @@ const textNodes = [
         text: 'Dialogue Test 2, if it works?',
         options:[
             {
-                text:"Test for Choice A!",
+                text: "Test A",
                 nextText: 2
             },
             {
-                text:"Test for Choice B!",
+                text: "Test B",
                 nextText: 2
             },
             {
-                text:"Test for Choice C!",
+                text: "Test C",
                 nextText: 2
             },
             {
-                text:"Test for Choice D!",
+                text: "Test D",
                 nextText: 2
             }
         ]
