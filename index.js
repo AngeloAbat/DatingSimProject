@@ -1,14 +1,15 @@
-const textElement = document.getElementsByClassName('gameText')
-const choiceButtons = document.getElementsByClassName('gameChoices') 
+const textElement = document.getElementById('gameText')
+const choiceButtons = document.querySelector('.gameChoices') 
 
 function startGame() {
     showTextNode(1)
     console.log("I got called , startGame()")
 }
 
-function showTextNode(gameTextNodeIndex) {
-    const textNode = textNodes.find(textNode => textNode.id === gameTextNodeIndex)
-    textElement.innertText = textNode.text
+function showTextNode(textNodeIndex) {
+    const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    console.log(textElement)
+    textElement.innerHTML = "textNode.text"
 }
 
 function selectOption(option){
@@ -58,5 +59,8 @@ const textNodes = [
     }
 ]
 
-
-startGame()
+document.onreadystatechange = function () {
+    if (document.readyState == "interactive") {
+        startGame()
+    }
+}
