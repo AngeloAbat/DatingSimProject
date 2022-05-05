@@ -8,13 +8,21 @@ function showTextNode(textNodeIndex) {
     textElements.innerHTML = textNode.text
 
     let characterName = document.getElementById('gameName')     //Character Name
-    characterName.innerHTML = textNode.name
+    if(textNode.nameChange = true){
+        characterName.innerHTML = textNode.name
+    }
+    
 
     let backgroundImage = document.querySelector('.backgroundImage')    //Background Image
-    backgroundImage.style.backgroundImage = textNode.background
-
+    if(textNode.backgroundChange = true){
+        backgroundImage.style.backgroundImage = textNode.background
+    }
+    
     let characterA = document.querySelector('.characterA')      //Character Image
-    characterA.src = textNode.character
+    if(textNode.characterChange = true){
+        characterA.src = textNode.character
+    }
+    
 
     let buttonA = document.getElementById('choiceA')         //Choices
     let buttonB = document.getElementById('choiceB')
@@ -62,18 +70,18 @@ function showTextNode(textNodeIndex) {
     if(textNode.options[3].text === null){
         buttonD.style.display = "none";
     }
-
-
-
 }
 
-const textNodes = [
+const textNodes = [                                            //Array of files
     {
         id: 1,
-        text: 'Dialogue Test 2, if it works?',
+        text: 'Overall test 1, choose an option',
         name: "Yin",
         character: "assets/Characters/Yin/Yin.png",
         background: "url(./assets/backgroundImages/yuiBackground/yuiCafe.png)",
+        nameChange: true,
+        characterChange: true,
+        backgroundChange: true,
         options:[
             {
                 text: "Test A",
@@ -95,7 +103,7 @@ const textNodes = [
     },
     {
         id: 2,
-        text: 'Dialogue Test 3, Test 2 worked!',
+        text: 'Overall Test 2, Test 1 worked!',
         name: "Nova",
         character: "assets/Characters/Nova/Nova.png",
         background: "url(./assets/backgroundImages/taroBackground/TaroOffice.jpg)",
@@ -120,7 +128,7 @@ const textNodes = [
     },
     {
         id: 3,
-        text: 'Dialogue Test 4, It worked again!',
+        text: 'Overall test 3, It worked again!',
         name: "Taro",
         character: "assets/Characters/Taro/Taro.png",
         background: "url(./assets/backgroundImages/yuiBackground/yuiCafe.png)",
