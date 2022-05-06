@@ -9,8 +9,7 @@ function showTextNode(textNodeIndex) {
     textElements.innerHTML = textNode.text
 
     let characterName = document.getElementById('gameName')     //Character Name
-    console.log(textNode.checkChange)
-    if (textNode.checkChange && textNode.checkChange[0].nameChange == false){
+    if (textNode.nameChange = true){
         characterName.innerHTML = textNode.name
     }
     
@@ -24,7 +23,6 @@ function showTextNode(textNodeIndex) {
         characterA.src = textNode.character
     }
     
-
     let buttonA = document.getElementById('choiceA')         //Choices
     let buttonB = document.getElementById('choiceB')
     let buttonC = document.getElementById('choiceC')
@@ -83,11 +81,6 @@ const textNodes = [                                            //Array of files
         nameChange: true,
         characterChange: true,
         backgroundChange: true,
-        checkChange:[
-            {
-                nameChange: false,
-            }
-        ],
         options:[
             {
                 text: "Test A",
