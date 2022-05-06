@@ -1,5 +1,6 @@
 function startGame() {
     showTextNode(1)
+    
 }
 
 function showTextNode(textNodeIndex) {
@@ -8,11 +9,11 @@ function showTextNode(textNodeIndex) {
     textElements.innerHTML = textNode.text
 
     let characterName = document.getElementById('gameName')     //Character Name
-    if(textNode.nameChange = true){
+    console.log(textNode.checkChange)
+    if (textNode.checkChange && textNode.checkChange[0].nameChange == false){
         characterName.innerHTML = textNode.name
     }
     
-
     let backgroundImage = document.querySelector('.backgroundImage')    //Background Image
     if(textNode.backgroundChange = true){
         backgroundImage.style.backgroundImage = textNode.background
@@ -82,6 +83,11 @@ const textNodes = [                                            //Array of files
         nameChange: true,
         characterChange: true,
         backgroundChange: true,
+        checkChange:[
+            {
+                nameChange: false,
+            }
+        ],
         options:[
             {
                 text: "Test A",
