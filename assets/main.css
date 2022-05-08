@@ -29,10 +29,10 @@ main{
 }
 
 .backgroundImage{
-    background-image: url(./backgroundImages/taroBackground/TaroOffice.jpg);
     background-size: cover;
     height: 100%;
     filter: blur(5px);
+    background-image: url(./backgroundImages/taroBackground/TaroOffice.jpg);
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -211,8 +211,6 @@ body::-webkit-scrollbar-thumb{
     padding: 1vw;
     filter: opacity(0.7);
     background-color:rgb(255, 151, 177); ;
-    /*background-color: rgb(249, 185, 194);*/
-
 }
 
 .gameButton:hover{
@@ -280,3 +278,39 @@ body::-webkit-scrollbar-thumb{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#transitionScreen{
+    z-index: 1;
+    filter: blur(5px);
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 101vh;
+    transform: translate(0, -198%);
+    filter: opacity(0);
+    pointer-events: none;
+}
+
+.bgTransition{
+    animation: bgTransition 4s;
+    pointer-events: all
+}
+
+@keyframes bgTransition {
+    0%{filter: opacity(0);}
+    50%{filter: opacity(1);}
+    100%{filter: opacity(0); display: none;}
+}
+
+.bgSmack{
+    animation: bgSmack 2s;
+    pointer-events: all;
+}
+
+@keyframes bgSmack{
+    0%{filter: opacity(0);}
+    12.5%{filter: opacity(1);}
+    30%{filter: opacity(1);}
+    100%{filter: opacity(0);}
+
+}

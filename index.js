@@ -4,25 +4,15 @@ function startGame() {
 }
 
 function showTextNode(textNodeIndex) {
-    const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    let textElements = document.getElementById('gameText')     //Character Text
-    textElements.innerHTML = textNode.text
+    let textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    
 
-    let characterName = document.getElementById('gameName')     //Character Name
-    if (textNode.nameChange = true){
-        characterName.innerHTML = textNode.name
-    }
-    
+    let textElements = document.getElementById('gameText')              //Character Text
     let backgroundImage = document.querySelector('.backgroundImage')    //Background Image
-    if(textNode.backgroundChange = true){
-        backgroundImage.style.backgroundImage = textNode.background
-    }
-    
-    let characterA = document.querySelector('.characterA')      //Character Image
-    if(textNode.characterChange = true){
-        characterA.src = textNode.character
-    }
-    
+    let characterName = document.getElementById('gameName')             //Character Name
+    let characterA = document.querySelector('.characterA')              //Character Image
+    let bgTransition = document.getElementById('transitionScreen')      //Transition Phase
+
     let buttonA = document.getElementById('choiceA')         //Choices
     let buttonB = document.getElementById('choiceB')
     let buttonC = document.getElementById('choiceC')
@@ -49,38 +39,126 @@ function showTextNode(textNodeIndex) {
         showTextNode(textNode.options[3].nextText)
     }
 
-    buttonA.innerHTML = textNode.options[0].text  //Dialogue Text
-    buttonB.innerHTML = textNode.options[1].text
-    buttonC.innerHTML = textNode.options[2].text
-    buttonD.innerHTML = textNode.options[3].text
-
-    if(textNode.options[0].text === null){
-        buttonA.style.display = "none";
+    if(textNode.specialBGChange == true){
+        bgTransition.style.pointerEvents = "all"
+        bgTransition.className = "bgSmack";
+        setTimeout(function(){
+            bgTransition.className ="";
+            bgTransition.style.pointerEvents = "none"
+        }, 2000) 
+    } else if(textNode.backgroundChange == true){
+        bgTransition.style.pointerEvents = "all"
+        bgTransition.className = "bgTransition";
+        setTimeout(function(){
+            bgTransition.className ="";
+            bgTransition.style.pointerEvents = "none"
+        }, 4000) 
     }
 
-    if(textNode.options[1].text === null){
-        buttonB.style.display = "none";
+
+    if(textNode.specialBGChange == true){
+        setTimeout(function(){
+            backgroundImage.style.backgroundImage = textNode.background
+            textElements.innerHTML = textNode.text
+            if(textNode.characterChange == true){
+                characterA.src = textNode.character
+                characterName.innerHTML = textNode.name
+            }
+            buttonA.innerHTML = textNode.options[0].text  //Dialogue Text
+            buttonB.innerHTML = textNode.options[1].text
+            buttonC.innerHTML = textNode.options[2].text
+            buttonD.innerHTML = textNode.options[3].text
+        
+            if(textNode.options[0].text === null){
+                buttonA.style.display = "none";
+            }
+        
+            if(textNode.options[1].text === null){
+                buttonB.style.display = "none";
+            }
+        
+            if(textNode.options[2].text === null){
+                buttonC.style.display = "none";
+            }
+        
+            if(textNode.options[3].text === null){
+                buttonD.style.display = "none";
+            }
+        }, 375)
+    } else if(textNode.backgroundChange == true){
+        setTimeout(function(){
+            backgroundImage.style.backgroundImage = textNode.background
+            textElements.innerHTML = textNode.text
+            if(textNode.characterChange == true){
+                characterA.src = textNode.character
+                characterName.innerHTML = textNode.name
+            }
+            buttonA.innerHTML = textNode.options[0].text  //Dialogue Text
+            buttonB.innerHTML = textNode.options[1].text
+            buttonC.innerHTML = textNode.options[2].text
+            buttonD.innerHTML = textNode.options[3].text
+        
+            if(textNode.options[0].text === null){
+                buttonA.style.display = "none";
+            }
+        
+            if(textNode.options[1].text === null){
+                buttonB.style.display = "none";
+            }
+        
+            if(textNode.options[2].text === null){
+                buttonC.style.display = "none";
+            }
+        
+            if(textNode.options[3].text === null){
+                buttonD.style.display = "none";
+            }
+        },2000)
+    } else{
+        textElements.innerHTML = textNode.text
+        if(textNode.characterChange == true){
+            characterA.src = textNode.character
+            characterName.innerHTML = textNode.name
+            buttonA.innerHTML = textNode.options[0].text  //Dialogue Text
+            buttonB.innerHTML = textNode.options[1].text
+            buttonC.innerHTML = textNode.options[2].text
+            buttonD.innerHTML = textNode.options[3].text
+        
+            if(textNode.options[0].text === null){
+                buttonA.style.display = "none";
+            }
+        
+            if(textNode.options[1].text === null){
+                buttonB.style.display = "none";
+            }
+        
+            if(textNode.options[2].text === null){
+                buttonC.style.display = "none";
+            }
+        
+            if(textNode.options[3].text === null){
+                buttonD.style.display = "none";
+            }
+        }
     }
 
-    if(textNode.options[2].text === null){
-        buttonC.style.display = "none";
-    }
-
-    if(textNode.options[3].text === null){
-        buttonD.style.display = "none";
-    }
+    let counterForText = textNode
+    console.log(counterForText)
 }
 
-const textNodes = [                                            //Array of files
+
+
+
+const textNodes = [                                            //Character Interactives
     {
         id: 1,
         text: 'Overall test 1, choose an option',
         name: "Yin",
-        character: "assets/Characters/Yin/Yin.png",
+        character: "assets/Characters/Taro/Taro.png",
         background: "url(./assets/backgroundImages/yuiBackground/yuiCafe.png)",
-        nameChange: true,
+        specialBGChange: false,
         characterChange: true,
-        backgroundChange: true,
+        backgroundChange: false,
         options:[
             {
                 text: "Test A",
@@ -104,8 +182,11 @@ const textNodes = [                                            //Array of files
         id: 2,
         text: 'Overall Test 2, Test 1 worked!',
         name: "Nova",
-        character: "assets/Characters/Nova/Nova.png",
+        character: "assets/Characters/Taro/Taro.png",
         background: "url(./assets/backgroundImages/taroBackground/TaroOffice.jpg)",
+        specialBGChange: false,
+        characterChange: true,
+        backgroundChange: false,
         options:[
             {
                 text:"Confirmed Test A works",
@@ -129,15 +210,19 @@ const textNodes = [                                            //Array of files
         id: 3,
         text: 'Overall test 3, It worked again!',
         name: "Taro",
-        character: "assets/Characters/Taro/Taro.png",
+        character: "assets/Characters/Taro/TaroShock.png",
         background: "url(./assets/backgroundImages/yuiBackground/yuiCafe.png)",
+        specialBGChange: false,
+        characterChange: true,
+        backgroundChange: false,
         options:[
             {
-                text:"End test?"
+                text:"End test?",
+                nextText:4
             },
             {
                 text: null,
-                nextText: 2
+                nextText: 4
             },
             {
                 text: null,
@@ -148,7 +233,35 @@ const textNodes = [                                            //Array of files
                 nextText: null
             },
         ]
-    }
+    },
+    {
+        id: 4,
+        text: 'Test 4, character test',
+        name: "Whoever this is",
+        character: "assets/Characters/Taro/TaroUpset.png",
+        background: "url(./assets\backgroundImages\taroBackground\TaroOffice.jpg)",
+        specialBGChange: false,
+        characterChange: false,
+        backgroundChange: false,
+        options:[
+            {
+                text:"asd",
+                nextText: 1
+            },
+            {
+                text: null,
+                nextText: null
+            },
+            {
+                text: null,
+                nextText: null
+            },
+            {
+                text: null,
+                nextText: null
+            },
+        ]
+    },
 ]
 
 document.onreadystatechange = function () {
