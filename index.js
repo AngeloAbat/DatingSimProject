@@ -1,42 +1,64 @@
 function startGame() {
     showTextNode(1)
-    
 }
 
 function showTextNode(textNodeIndex) {
     let textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     
-
     let textElements = document.getElementById('gameText')              //Character Text
     let backgroundImage = document.querySelector('.backgroundImage')    //Background Image
     let characterName = document.getElementById('gameName')             //Character Name
     let characterA = document.querySelector('.characterA')              //Character Image
     let bgTransition = document.getElementById('transitionScreen')      //Transition Phase
 
+    let counterForText = textNode.text.length
+    console.log(counterForText)
+
+    function dialogueAnimation(){
+        let counterForText = textNode.text.length
+    }
+    console.log(dialogueAnimation)
+
     let buttonA = document.getElementById('choiceA')         //Choices
     let buttonB = document.getElementById('choiceB')
     let buttonC = document.getElementById('choiceC')
     let buttonD = document.getElementById('choiceD')
 
-    buttonA.addEventListener('click', selectedOptionA)    //Next set of TextNodes
+    buttonA.addEventListener('click', selectedOptionA)    
     buttonB.addEventListener('click', selectedOptionB)
     buttonC.addEventListener('click', selectedOptionC)
     buttonD.addEventListener('click', selectedOptionD)
     
     function selectedOptionA(){
         showTextNode(textNode.options[0].nextText)
+        buttonA.removeEventListener('click', selectedOptionA)    
+        buttonB.removeEventListener('click', selectedOptionB)
+        buttonC.removeEventListener('click', selectedOptionC)
+        buttonD.removeEventListener('click', selectedOptionD)
     }
 
     function selectedOptionB(){
         showTextNode(textNode.options[1].nextText)
+        buttonA.removeEventListener('click', selectedOptionA)    
+        buttonB.removeEventListener('click', selectedOptionB)
+        buttonC.removeEventListener('click', selectedOptionC)
+        buttonD.removeEventListener('click', selectedOptionD)
     }
 
     function selectedOptionC(){
         showTextNode(textNode.options[2].nextText)
+        buttonA.removeEventListener('click', selectedOptionA)    
+        buttonB.removeEventListener('click', selectedOptionB)
+        buttonC.removeEventListener('click', selectedOptionC)
+        buttonD.removeEventListener('click', selectedOptionD)
     }
 
     function selectedOptionD(){
         showTextNode(textNode.options[3].nextText)
+        buttonA.removeEventListener('click', selectedOptionA)    
+        buttonB.removeEventListener('click', selectedOptionB)
+        buttonC.removeEventListener('click', selectedOptionC)
+        buttonD.removeEventListener('click', selectedOptionD)
     }
 
     if(textNode.specialBGChange == true){
@@ -141,9 +163,6 @@ function showTextNode(textNodeIndex) {
             }
         }
     }
-
-    let counterForText = textNode
-    console.log(counterForText)
 }
 
 
@@ -153,7 +172,7 @@ const textNodes = [                                            //Character Inter
     {
         id: 1,
         text: 'Overall test 1, choose an option',
-        name: "Yin",
+        name: "Taro",
         character: "assets/Characters/Taro/Taro.png",
         background: "url(./assets/backgroundImages/yuiBackground/yuiCafe.png)",
         specialBGChange: false,
@@ -181,12 +200,12 @@ const textNodes = [                                            //Character Inter
     {
         id: 2,
         text: 'Overall Test 2, Test 1 worked!',
-        name: "Nova",
+        name: "Taro",
         character: "assets/Characters/Taro/Taro.png",
         background: "url(./assets/backgroundImages/taroBackground/TaroOffice.jpg)",
         specialBGChange: false,
         characterChange: true,
-        backgroundChange: false,
+        backgroundChange: true,
         options:[
             {
                 text:"Confirmed Test A works",
@@ -241,8 +260,8 @@ const textNodes = [                                            //Character Inter
         character: "assets/Characters/Taro/TaroUpset.png",
         background: "url(./assets\backgroundImages\taroBackground\TaroOffice.jpg)",
         specialBGChange: false,
-        characterChange: false,
-        backgroundChange: false,
+        characterChange: true,
+        backgroundChange: true,
         options:[
             {
                 text:"asd",
