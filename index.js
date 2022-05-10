@@ -1,23 +1,27 @@
 function startGame() {
     showTextNode(1)
+
 }
 
 function showTextNode(textNodeIndex) {
+    
     let textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     
-    let textElements = document.getElementById('gameText')              //Character Text
-    let backgroundImage = document.querySelector('.backgroundImage')    //Background Image
-    let characterName = document.getElementById('gameName')             //Character Name
-    let characterA = document.querySelector('.characterA')              //Character Image
-    let bgTransition = document.getElementById('transitionScreen')      //Transition Phase
+    let textElements = document.getElementById('gameText')                  //Character Text
+    let backgroundImage = document.querySelector('.backgroundImage')        //Background Image
+    let characterName = document.getElementById('gameName')                 //Character Name
+    let characterA = document.querySelector('.characterA')                  //Character Image
+    let bgTransition = document.getElementById('transitionScreen')          //Transition Phase
+    let gameTextAnimation = document.querySelector('.gameTextAnimation')    //TextAnimation
 
-    let counterForText = textNode.text.length
-    console.log(counterForText)
-
-    function dialogueAnimation(){
-        let counterForText = textNode.text.length
-    }
-    console.log(dialogueAnimation)
+    // function dialogueAnimation(){
+    //     textElements.className = "gameTextAnimation"
+    //     let counterForText = textNode.text.length
+    //     gameTextAnimation.style.animation = `typingAnimation 3s(${counterForText}, end)`
+    //     setTimeout (function(){
+    //         textElements.className=""
+    //     },3000)
+    // }
 
     let buttonA = document.getElementById('choiceA')         //Choices
     let buttonB = document.getElementById('choiceB')
@@ -28,37 +32,55 @@ function showTextNode(textNodeIndex) {
     buttonB.addEventListener('click', selectedOptionB)
     buttonC.addEventListener('click', selectedOptionC)
     buttonD.addEventListener('click', selectedOptionD)
-    
-    function selectedOptionA(){
-        showTextNode(textNode.options[0].nextText)
+
+    function removeListeners(){
         buttonA.removeEventListener('click', selectedOptionA)    
         buttonB.removeEventListener('click', selectedOptionB)
         buttonC.removeEventListener('click', selectedOptionC)
         buttonD.removeEventListener('click', selectedOptionD)
     }
-
+    
+    function selectedOptionA(){
+        showTextNode(textNode.options[0].nextText)
+        removeListeners()
+    }
     function selectedOptionB(){
         showTextNode(textNode.options[1].nextText)
-        buttonA.removeEventListener('click', selectedOptionA)    
-        buttonB.removeEventListener('click', selectedOptionB)
-        buttonC.removeEventListener('click', selectedOptionC)
-        buttonD.removeEventListener('click', selectedOptionD)
+        removeListeners()
     }
 
     function selectedOptionC(){
         showTextNode(textNode.options[2].nextText)
-        buttonA.removeEventListener('click', selectedOptionA)    
-        buttonB.removeEventListener('click', selectedOptionB)
-        buttonC.removeEventListener('click', selectedOptionC)
-        buttonD.removeEventListener('click', selectedOptionD)
+        removeListeners()
     }
 
     function selectedOptionD(){
         showTextNode(textNode.options[3].nextText)
-        buttonA.removeEventListener('click', selectedOptionA)    
-        buttonB.removeEventListener('click', selectedOptionB)
-        buttonC.removeEventListener('click', selectedOptionC)
-        buttonD.removeEventListener('click', selectedOptionD)
+        removeListeners()
+    }
+
+    function noText(){
+        buttonA.style.display = ""
+        buttonB.style.display = ""
+        buttonC.style.display = ""
+        buttonD.style.display = ""
+
+
+        if(typeof textNode.options[0].text != "string"){
+            buttonA.style.display = "none";
+        }
+    
+        if(typeof textNode.options[1].text != "string"){
+            buttonB.style.display = "none";
+        }
+    
+        if(typeof textNode.options[2].text != "string"){
+            buttonC.style.display = "none";
+        }
+    
+        if(typeof textNode.options[3].text != "string"){
+            buttonD.style.display = "none";
+        }
     }
 
     if(textNode.specialBGChange == true){
@@ -93,19 +115,19 @@ function showTextNode(textNodeIndex) {
         
             if(textNode.options[0].text === null){
                 buttonA.style.display = "none";
-            }
+            } else{buttonA.style.display = "hidden"}
         
             if(textNode.options[1].text === null){
                 buttonB.style.display = "none";
-            }
+            } else{buttonB.style.display = "hidden"}
         
             if(textNode.options[2].text === null){
                 buttonC.style.display = "none";
-            }
+            } else{buttonC.style.display = "hidden"}
         
             if(textNode.options[3].text === null){
                 buttonD.style.display = "none";
-            }
+            } else{buttonD.style.display = "hidden"}
         }, 375)
     } else if(textNode.backgroundChange == true){
         setTimeout(function(){
@@ -122,19 +144,19 @@ function showTextNode(textNodeIndex) {
         
             if(textNode.options[0].text === null){
                 buttonA.style.display = "none";
-            }
+            } else{buttonA.style.display = "hidden"}
         
             if(textNode.options[1].text === null){
                 buttonB.style.display = "none";
-            }
+            } else{buttonB.style.display = "hidden"}
         
             if(textNode.options[2].text === null){
                 buttonC.style.display = "none";
-            }
+            } else{buttonC.style.display = "hidden"}
         
             if(textNode.options[3].text === null){
                 buttonD.style.display = "none";
-            }
+            } else{buttonD.style.display = "hidden"}
         },2000)
     } else{
         textElements.innerHTML = textNode.text
@@ -145,22 +167,7 @@ function showTextNode(textNodeIndex) {
             buttonB.innerHTML = textNode.options[1].text
             buttonC.innerHTML = textNode.options[2].text
             buttonD.innerHTML = textNode.options[3].text
-        
-            if(textNode.options[0].text === null){
-                buttonA.style.display = "none";
-            }
-        
-            if(textNode.options[1].text === null){
-                buttonB.style.display = "none";
-            }
-        
-            if(textNode.options[2].text === null){
-                buttonC.style.display = "none";
-            }
-        
-            if(textNode.options[3].text === null){
-                buttonD.style.display = "none";
-            }
+            noText()
         }
     }
 }
@@ -205,7 +212,7 @@ const textNodes = [                                            //Character Inter
         background: "url(./assets/backgroundImages/taroBackground/TaroOffice.jpg)",
         specialBGChange: false,
         characterChange: true,
-        backgroundChange: true,
+        backgroundChange: false,
         options:[
             {
                 text:"Confirmed Test A works",
@@ -221,7 +228,7 @@ const textNodes = [                                            //Character Inter
             },
             {
                 text: null,
-                nextText: 3
+                nextText: null
             }
         ]
     },
@@ -241,7 +248,7 @@ const textNodes = [                                            //Character Inter
             },
             {
                 text: null,
-                nextText: 4
+                nextText: null
             },
             {
                 text: null,
@@ -261,7 +268,7 @@ const textNodes = [                                            //Character Inter
         background: "url(./assets\backgroundImages\taroBackground\TaroOffice.jpg)",
         specialBGChange: false,
         characterChange: true,
-        backgroundChange: true,
+        backgroundChange: false,
         options:[
             {
                 text:"asd",
@@ -288,3 +295,4 @@ document.onreadystatechange = function () {
         startGame()
     }
 }
+
