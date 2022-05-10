@@ -112,22 +112,7 @@ function showTextNode(textNodeIndex) {
             buttonB.innerHTML = textNode.options[1].text
             buttonC.innerHTML = textNode.options[2].text
             buttonD.innerHTML = textNode.options[3].text
-        
-            if(textNode.options[0].text === null){
-                buttonA.style.display = "none";
-            } else{buttonA.style.display = "hidden"}
-        
-            if(textNode.options[1].text === null){
-                buttonB.style.display = "none";
-            } else{buttonB.style.display = "hidden"}
-        
-            if(textNode.options[2].text === null){
-                buttonC.style.display = "none";
-            } else{buttonC.style.display = "hidden"}
-        
-            if(textNode.options[3].text === null){
-                buttonD.style.display = "none";
-            } else{buttonD.style.display = "hidden"}
+            noText()
         }, 375)
     } else if(textNode.backgroundChange == true){
         setTimeout(function(){
@@ -141,22 +126,7 @@ function showTextNode(textNodeIndex) {
             buttonB.innerHTML = textNode.options[1].text
             buttonC.innerHTML = textNode.options[2].text
             buttonD.innerHTML = textNode.options[3].text
-        
-            if(textNode.options[0].text === null){
-                buttonA.style.display = "none";
-            } else{buttonA.style.display = "hidden"}
-        
-            if(textNode.options[1].text === null){
-                buttonB.style.display = "none";
-            } else{buttonB.style.display = "hidden"}
-        
-            if(textNode.options[2].text === null){
-                buttonC.style.display = "none";
-            } else{buttonC.style.display = "hidden"}
-        
-            if(textNode.options[3].text === null){
-                buttonD.style.display = "none";
-            } else{buttonD.style.display = "hidden"}
+            noText()
         },2000)
     } else{
         textElements.innerHTML = textNode.text
