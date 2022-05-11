@@ -36,7 +36,7 @@ Coding:
 
 Character-design & Story:
  - Erika Valdez
- - Anonymous
+ - Pomski
 
 Fonts:
 All of these are Google Fonts
